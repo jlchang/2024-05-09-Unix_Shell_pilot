@@ -39,6 +39,9 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+ 
+# VScode workspace config
+*.code-workspace
 
 # R Environment Variables
 .Renviron
