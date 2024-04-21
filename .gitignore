@@ -24,7 +24,8 @@ site/*
 
 # RStudio files
 .Rproj.user/
-
+.Rhistory
+q
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
