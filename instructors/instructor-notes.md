@@ -17,19 +17,11 @@ the bash shell). They will learn how to navigate their file system, computationa
 This lesson is meant to be taught in its entirety. For novice learners, schedule around 4 hours for this lesson. If your learners are
 already somewhat familiar with the bash shell, the earlier episodes can be condensed.
 
-This lesson uses data hosted on an Amazon Machine Instance (AMI). Instructors will be sent information on how to log-in to the AMI by the workshop coordinator a few days before the workshop. If you are running a self-organized workshop, register the workshop with our [self-organized workshop form](https://amy.carpentries.org/forms/workshop/) and send us an email at [mailto:team@datacarpentry.org](mailto:team@datacarpentry.org) with information on how many people you expect to have at the workshop, and we'll start instances for you to use in the workshop. The day before the workshop, we'll send you the login information for your learners.
-
 ## Technical tips and tricks
-
-### Etherpad template
-
-There is a [template Etherpad](https://datacarpentry.org/shell-genomics/instructor/etherpad_template.html) to
-paste into a collaborative document, such as the [Carpentries Etherpad](https://pad.carpentries.org/). Etherpad
-supports synchronous document editing and is useful for collaborative work when teaching lessons.
 
 #### Command Prompt Editing
 
-Instructors might find it helpful to shorten their command prompt to allow better visibility of the commands they are typing, particularly if using the AMI.  This is because the prompt will contain additional information including the username and login for the instance, as well as filesystem location. This is especially useful when teaching the material online, as many learners may be splitting their screens and text wrapping may make the commands more difficult to identify if the prompt takes up a lot of space.
+Instructors might find it helpful to shorten their command prompt to allow better visibility of the commands they are typing. This is because the prompt mayl contain additional information including the username and login for the instance, as well as filesystem location. This is especially useful when teaching the material online, as many learners may be splitting their screens and text wrapping may make the commands more difficult to identify if the prompt takes up a lot of space.
 
 In order to edit your command prompt, type `PS1='$ '` into your shell and press enter. This will produce the simple "dollar space" prompt visible in the lesson content.
 
@@ -39,24 +31,15 @@ NOTE: Editing the prompt is discussed in [1\. Introducing the Shell](https://dat
 
 Resetting the command prompt is not currently included in the lesson materials, so it might be useful to be familiar with this beforehand in case of learners' questions.
 
-## Common problems
-
-Learners will work through an Amazon Web Service (AWS) instance for this lesson. The workshop coordinator will set up AWS instances for
-your workshop a few days ahead of time. Put the links for all instances on your workshop Etherpad and have learners put their name next
-to the instance they will use. This prevents learners from accidentally messing up another learner's filesystem.
-
-The workshop coordinator usually sets up more AWS instances than needed for the registered learners.
-If a learner accidentally deletes or overwrites data files, you can have them change to a different AWS instance.
-
 ## Tips and Tricks from Library Carpentries lesson
 
 ### Making a handout
 
-Librarians like handouts. To make a handout for this lesson, adapt/print from [https://librarycarpentry.org/lc-shell/reference](https://librarycarpentry.org/lc-shell/reference).
+To make a handout for this lesson, adapt/print from [https://jlchang.github.io/2024-05-09-Unix_Shell_pilot/shellCheatSheet.html](https://jlchang.github.io/2024-05-09-Unix_Shell_pilot/shellCheatSheet.html).
 
 ### Differences between platforms
 
-Some of the commands used in this lesson behave differently depending on whether they are run on Git Bash for Windows, macOS X or Linux. Be prepared to manage these differences. Here are some examples from episode 5, "Counting and mining with the shell":
+Some of the commands used in this lesson behave differently depending on whether they are run on Git Bash for Windows, macOS X or Linux. Be prepared to manage these differences. Here are some examples from Library Carpentries "The UNIX Shell" episode 5, "Counting and mining with the shell":
 
 - `grep -E` on macOS X acts like `grep -P` on other platforms. On Windows and Linux, `grep -E` is halfway between `grep -P` and `grep`: it only does what `grep` can do, but uses Perl-compatible syntax to do it.
 

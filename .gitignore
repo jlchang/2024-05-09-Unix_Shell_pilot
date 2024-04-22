@@ -41,8 +41,9 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
  
-# VScode workspace config
+# VScode workspace 
 *.code-workspace
+.metals
 
 # R Environment Variables
 .Renviron

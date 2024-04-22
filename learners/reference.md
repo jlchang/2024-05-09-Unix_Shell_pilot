@@ -1,7 +1,3 @@
----
-title: 'Glossary'
----
-
 ## Glossary
 
 [absolute path]{#absolute-path}
@@ -222,5 +218,3 @@ so that `*.txt` matches all files whose names end in `.txt`.
 ### High-throughput sequencing
 
 - Illumina Sequencing Technology [YouTube video](https://www.youtube.com/watch?v=womKfikWlxM)
-
-
