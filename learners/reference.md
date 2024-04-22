@@ -1,4 +1,7 @@
-## Glossary
+---
+title: 'Glossary'
+---
+
 
 [absolute path]{#absolute-path}
 :   A [path](#path) that refers to a particular location in a file system.

@@ -1,6 +1,7 @@
-## Shell Cheat Sheet
+---
+title: Shell Cheat Sheet
+---
 
-***
 
 ### Shell: Basics
 
