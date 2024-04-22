@@ -17,19 +17,11 @@ the bash shell). They will learn how to navigate their file system, computationa
 This lesson is meant to be taught in its entirety. For novice learners, schedule around 4 hours for this lesson. If your learners are
 already somewhat familiar with the bash shell, the earlier episodes can be condensed.
 
-This lesson uses data hosted on an Amazon Machine Instance (AMI). Instructors will be sent information on how to log-in to the AMI by the workshop coordinator a few days before the workshop. If you are running a self-organized workshop, register the workshop with our [self-organized workshop form](https://amy.carpentries.org/forms/workshop/) and send us an email at [mailto:team@datacarpentry.org](mailto:team@datacarpentry.org) with information on how many people you expect to have at the workshop, and we'll start instances for you to use in the workshop. The day before the workshop, we'll send you the login information for your learners.
-
 ## Technical tips and tricks
-
-### Etherpad template
-
-There is a [template Etherpad](https://datacarpentry.org/shell-genomics/instructor/etherpad_template.html) to
-paste into a collaborative document, such as the [Carpentries Etherpad](https://pad.carpentries.org/). Etherpad
-supports synchronous document editing and is useful for collaborative work when teaching lessons.
 
 #### Command Prompt Editing
 
-Instructors might find it helpful to shorten their command prompt to allow better visibility of the commands they are typing, particularly if using the AMI.  This is because the prompt will contain additional information including the username and login for the instance, as well as filesystem location. This is especially useful when teaching the material online, as many learners may be splitting their screens and text wrapping may make the commands more difficult to identify if the prompt takes up a lot of space.
+Instructors might find it helpful to shorten their command prompt to allow better visibility of the commands they are typing. This is because the prompt mayl contain additional information including the username and login for the instance, as well as filesystem location. This is especially useful when teaching the material online, as many learners may be splitting their screens and text wrapping may make the commands more difficult to identify if the prompt takes up a lot of space.
 
 In order to edit your command prompt, type `PS1='$ '` into your shell and press enter. This will produce the simple "dollar space" prompt visible in the lesson content.
 
@@ -39,24 +31,15 @@ NOTE: Editing the prompt is discussed in [1\. Introducing the Shell](https://dat
 
 Resetting the command prompt is not currently included in the lesson materials, so it might be useful to be familiar with this beforehand in case of learners' questions.
 
-## Common problems
-
-Learners will work through an Amazon Web Service (AWS) instance for this lesson. The workshop coordinator will set up AWS instances for
-your workshop a few days ahead of time. Put the links for all instances on your workshop Etherpad and have learners put their name next
-to the instance they will use. This prevents learners from accidentally messing up another learner's filesystem.
-
-The workshop coordinator usually sets up more AWS instances than needed for the registered learners.
-If a learner accidentally deletes or overwrites data files, you can have them change to a different AWS instance.
-
 ## Tips and Tricks from Library Carpentries lesson
 
 ### Making a handout
 
-Librarians like handouts. To make a handout for this lesson, adapt/print from [https://librarycarpentry.org/lc-shell/reference](https://librarycarpentry.org/lc-shell/reference).
+To make a handout for this lesson, adapt/print from [https://jlchang.github.io/2024-05-09-Unix_Shell_pilot/shellCheatSheet.html](https://jlchang.github.io/2024-05-09-Unix_Shell_pilot/shellCheatSheet.html).
 
 ### Differences between platforms
 
-Some of the commands used in this lesson behave differently depending on whether they are run on Git Bash for Windows, macOS X or Linux. Be prepared to manage these differences. Here are some examples from episode 5, "Counting and mining with the shell":
+Some of the commands used in this lesson behave differently depending on whether they are run on Git Bash for Windows, macOS X or Linux. Be prepared to manage these differences. Here are some examples from Library Carpentries "The UNIX Shell" episode 5, "Counting and mining with the shell":
 
 - `grep -E` on macOS X acts like `grep -P` on other platforms. On Windows and Linux, `grep -E` is halfway between `grep -P` and `grep`: it only does what `grep` can do, but uses Perl-compatible syntax to do it.
 
@@ -134,13 +117,13 @@ All of this material can be covered in three hours as long as learners using Win
 
 - Running a text editor from the command line can be the biggest stumbling block during the entire lesson: many will try to run the same editor as the instructor or will not know how to navigate to the right directory to save their file, or will run a word processor rather than a plain text editor. The quickest way past these problems is to have more knowledgeable learners help those who need it.
 
-- Introducing and navigating the filesystem in the shell (covered in [Navigating Files and Directories](../episodes/02-navigating-the-filesystem.md) section) can be confusing. You may have both terminal and GUI file explorer open side by side so learners can see the content and file structure while they're using terminal to navigate the system.
+- Introducing and navigating the filesystem in the shell (covered in [Navigating Files and Directories](../episodes/lc-shell/02-navigating-the-filesystem.md) section) can be confusing. You may have both terminal and GUI file explorer open side by side so learners can see the content and file structure while they're using terminal to navigate the system.
 
 - Tab completion sounds like a small thing: it isn't. Re-running old commands using `!123` or `!wc` isn't a small thing either, and neither are wildcard expansion and `for` loops. Each one is an opportunity to repeat one of the big ideas of Software Carpentry: if the computer *can* repeat it, some programmer somewhere will almost certainly have built some way for the computer *to* repeat it.
 
 - Building up a pipeline with four or five stages, then putting it in a shell script for re-use and calling that script inside a `for` loop, is a great opportunity to show how "seven plus or minus two" connects to programming. Once we have figured out how to do something moderately complicated, we make it re-usable and give it a name so that it only takes up one slot in working memory rather than several. It is also a good opportunity to talk about exploratory programming: rather than designing a program up front, we can do a few useful things and then retroactively decide which are worth encapsulating for future re-use.
 
-- If everything is going well, you can drive home the point that file extensions are essentially there to help computers (and human readers) understand file content and are not a requirement of files (covered briefly in [Navigating Files and Directories](../episodes/02-navigating-the-filesystem.md)). This can be done in the [Pipes and Filters](../episodes/05-counting-mining.md) section by showing that you can redirect standard output to a file without the .txt extension (e.g., lengths), and that the resulting file is still a perfectly usable text file. Make the point that if double-clicked in the GUI, the computer will probably ask you what you want to do.
+- If everything is going well, you can drive home the point that file extensions are essentially there to help computers (and human readers) understand file content and are not a requirement of files (covered briefly in [Navigating Files and Directories](../episodes/lc-shell/02-navigating-the-filesystem.md)). This can be done in the [Pipes and Filters](../episodes/lc-shell/05-counting-mining.md) section by showing that you can redirect standard output to a file without the .txt extension (e.g., lengths), and that the resulting file is still a perfectly usable text file. Make the point that if double-clicked in the GUI, the computer will probably ask you what you want to do.
 
 - We have to leave out many important things because of time constraints, including file permissions, job control, and SSH. If learners already understand the basic material, this can be covered instead using the online lessons as guidelines. These limitations also have follow-on consequences:
 
