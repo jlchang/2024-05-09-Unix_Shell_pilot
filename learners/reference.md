@@ -2,7 +2,6 @@
 title: 'Glossary'
 ---
 
-## Glossary
 
 [absolute path]{#absolute-path}
 :   A [path](#path) that refers to a particular location in a file system.
@@ -222,5 +221,3 @@ so that `*.txt` matches all files whose names end in `.txt`.
 ### High-throughput sequencing
 
 - Illumina Sequencing Technology [YouTube video](https://www.youtube.com/watch?v=womKfikWlxM)
-
-

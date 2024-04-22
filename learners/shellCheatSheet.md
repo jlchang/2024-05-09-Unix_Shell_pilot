@@ -1,10 +1,7 @@
 ---
-title: Reference
+title: Shell Cheat Sheet
 ---
 
-## Shell Cheat Sheet
-
-***
 
 ### Shell: Basics
 
@@ -111,5 +108,3 @@ title: Reference
 **`'''\n`** translates every blank space into `\n`, then renders on a new line
 
 **`uniq`** reports or filters repeated lines in a file, use with `-c` to do a word count of the duplicates
-
-

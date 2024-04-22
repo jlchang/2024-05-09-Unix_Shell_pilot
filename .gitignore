@@ -41,8 +41,9 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
  
-# VScode workspace config
+# VScode workspace 
 *.code-workspace
+.metals
 
 # R Environment Variables
 .Renviron
@@ -55,3 +56,6 @@ po/*~
 
 # renv detritus
 renv/sandbox/
+
+# macOS 
+.DS_Store
