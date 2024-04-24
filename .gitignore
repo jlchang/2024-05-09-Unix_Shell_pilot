@@ -44,6 +44,7 @@ vignettes/*.pdf
 # VScode workspace 
 *.code-workspace
 .metals
+.vscode
 
 # R Environment Variables
 .Renviron
