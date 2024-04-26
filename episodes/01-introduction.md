@@ -57,11 +57,11 @@ On a Mac or Linux machine, you can reach the login servers using a program calle
 on your computer. The Terminal is a window into which we will type commands. If you're using Windows,
 you'll use SecureCRT.
 
-##  How to access the remote server
+## How to access the remote server
+
 1. Connect to the **Broad-Internal** wireless network.
 1. Launch your preferred SSH client, such as Terminal (Mac or Unix) or SecureCRT (Windows)
 1. Log in to a Broad login server using the [instructions on the Broad Intranet](https://intranet.broadinstitute.org/bits/service-catalog/scientific-computing/login-servers).
-
 
 After logging in, you will see a screen showing something like this:
 
@@ -120,13 +120,13 @@ stated in this warning.
 ```
 
 This provides a lot of information about the login servers. Continuing means
-you agree to Broad's acceptable use policy. If you disagree, please type `exit`. 
+you agree to Broad's acceptable use policy. If you disagree, please type `exit`.
 Otherwise let's continue. You can clear your screen using the `clear` command.
 
 Type the word `clear` into the terminal and press the `Enter` key.
 
 ```bash
-$ clear
+clear
 ```
 
 This will scroll your screen down to give you a fresh screen and will make it easier to read.
@@ -171,7 +171,7 @@ To change back to your original prompt, type in the output of the previous comma
 original configuration) between the quotes in the following command:
 `PS1=""`
 
-For example, if the output of `echo $PS1` was `\u@\h:\w $ `,
+For example, if the output of `echo $PS1` was `\u@\h:\w $`,
 then type those characters between the quotes in the above command: `PS1="\u@\h:\w $ "`.
 Alternatively, you can reset your original prompt by exiting the shell and opening a new session.
 
@@ -200,7 +200,7 @@ the computer's response is `/home/unix/<username>`, also known as your home dire
 Angle brackets give you a hint to substitute an appropriate value (without the brackets).
 
 ```bash
-$ pwd
+pwd
 ```
 
 ```output
@@ -217,6 +217,7 @@ ls
 ```output
 
 ```
+
 `ls` prints the names of the files and directories in the current directory in
 alphabetical order,
 arranged neatly into columns.
@@ -226,20 +227,25 @@ Your output may look different. (Confession, I cleaned up because I knew you wer
 On most Unix systems, you can grab a file over the internet using a tool called `wget`.
 
 ```bash
-wget https://data.broadinstitute.org/bits_demo/user_education_sessions/Unix101/unix101demo.tgz
+wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/files/cb_unix_shell.tgz
 ```
 
 ```output
---2024-04-25 23:25:06--  https://data.broadinstitute.org/bits_demo/user_education_sessions/Unix101/unix101demo.tgz
-Resolving data.broadinstitute.org (data.broadinstitute.org)... 69.173.68.137
-Connecting to data.broadinstitute.org (data.broadinstitute.org)|69.173.68.137|:443... connected.
+--2024-04-26 08:57:28--  https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/files/cb_unix_shell.tgz
+Resolving github.com (github.com)... 140.82.113.4
+Connecting to github.com (github.com)|140.82.113.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://raw.githubusercontent.com/jlchang/2024-05-09-Unix_Shell_pilot/jlc_episode1_edits/learners/files/cb_unix_shell.tgz [following]
+--2024-04-26 08:57:28--  https://raw.githubusercontent.com/jlchang/2024-05-09-Unix_Shell_pilot/jlc_episode1_edits/learners/files/cb_unix_shell.tgz
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.110.133, 185.199.111.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
-Length: 2367992 (2.3M) [application/x-gzip]
-Saving to: 'unix101demo.tgz'
+Length: 115379 (113K) [application/octet-stream]
+Saving to: ‘cb_unix_shell.tgz’
 
-100%[=====================================================================================>] 2,367,992   --.-K/s   in 0.02s
+cb_unix_shell.tgz              100%[===================================================>] 112.67K  --.-KB/s    in 0.1s
 
-2024-04-25 23:25:06 (134 MB/s) - 'unix101demo.tgz' saved [2367992/2367992]
+2024-04-26 08:57:29 (892 KB/s) - ‘cb_unix_shell.tgz’ saved [115379/115379]
 
 ```
 
@@ -250,13 +256,13 @@ ls
 ```
 
 ```output
-unix101demo.tar.gz
+cb_unix_shell.tgz
 ```
 
 We downloaded a "tarball". It's a compressed file that can be unpacked. Let's unpack it!
 
 ```bash
-tar -xzf unix101demo.tar.gz
+tar -xzf cb_unix_shell.tgz
 ```
 
 Now if we `ls` again
@@ -266,41 +272,41 @@ ls
 ```
 
 ```output
-unix101demo  unix101demo.tar.gz
+cb_unix_shell  cb_unix_shell.tgz
 ```
 
-Let's explore the `unix101demo` subdirectory.
+Let's explore the `cb_unix_shell` subdirectory.
 
 The command to change locations in our file system is `cd`, followed by a
 directory name to change our working directory.
 `cd` stands for "change directory".
 
-Let's say we want to navigate to the `unix101demo` directory we saw above.  We can
+Let's say we want to navigate to the `cb_unix_shell` directory we saw above.  We can
 use the following command to get there:
 
 ```bash
-$ cd unix101demo
+cd cb_unix_shell
 ```
 
 Let's look at what is in this directory:
 
 ```bash
-$ ls
+ls
 ```
 
 ```output
-Dahl  Seuss  authors.txt  bigfile.txt  data  prodinfo454
+Dahl  Seuss  authors.txt  data  prodinfo454
 ```
 
 We can make the `ls` output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
 ```bash
-$ ls -F
+ls -F
 ```
 
 ```output
-Dahl/  Seuss/  authors.txt  bigfile.txt  data  prodinfo454/
+Dahl/  Seuss/  authors.txt  data  prodinfo454/
 ```
 
 Anything with a "/" after it is a directory. Things with a "\*" after them are programs. If
@@ -309,7 +315,7 @@ there are no decorations, it's a file. Broad servers already color code by defau
 `ls` has lots of other options. To find out what they are, we can type:
 
 ```bash
-$ man ls
+man ls
 ```
 
 `man` (short for manual) displays detailed documentation (also referred as man page or man file)
@@ -332,7 +338,7 @@ gives you that you don't see with the bare `ls` command?
 ## Solution
 
 ```bash
-$ ls -l
+ls -l
 ```
 
 ```output
@@ -340,7 +346,6 @@ total 8
 drwxrwsr-x   4 jlchang sequence      94 Mar 13  2013 Dahl
 drwxrwsr-x   4 jlchang sequence      68 Mar 13  2013 Seuss
 -rw-rw-r--   1 jlchang sequence     155 Mar 14  2013 authors.txt
--rw-rw-r--   1 jlchang sequence 8851420 Mar 18  2013 bigfile.txt
 -rw-rw-r--   1 jlchang sequence   19085 Mar 14  2013 data
 drwxrwsr-x 451 jlchang sequence   33225 Mar 14  2013 prodinfo454
 ```
@@ -360,8 +365,8 @@ as needed.
 Let's go into the `Seuss` directory and see what is in there.
 
 ```bash
-$ cd Seuss
-$ ls -F
+cd Seuss
+ls -F
 ```
 
 ```output
@@ -419,7 +424,7 @@ Tab completion can also fill in the names of programs, which can be useful if yo
 remember the beginning of a program name.
 
 ```bash
-$ pw<tab><tab>
+pw<tab><tab>
 ```
 
 ```output
@@ -447,5 +452,3 @@ using the command line shell enables us to make our workflow more efficient and 
 - Tab completion can reduce errors from mistyping and make work more efficient in the shell.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
