@@ -63,9 +63,6 @@ episodes:
 - 02-the-filesystem.md
 - 03-working-with-files.md
 - 04-redirection.md
-- 05-writing-scripts.md
-- 06-organization.md
-- next-episode.Rmd
 
 # Information for Learners
 learners: 
