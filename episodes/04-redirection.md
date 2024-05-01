@@ -43,7 +43,7 @@ nucleotide at that position in the DNA sequence.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We'll search for strings inside of our fastq files. We're going to make some symlinks. If you're a Mac user, you may be familiar with right-click to `Make Alias`; On Windows, you right-click to `Create Shortcut`. A symlink points to a file without making another copy.
+We'll search for strings inside of our fastq files. But first, we're going to make some symlinks. If you're a Mac user, you may be familiar with right-click to `Make Alias`; On Windows, you'd right-click to `Create Shortcut`. A symlink points to a file without making another copy.
 
 ```bash
 ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq SRR098026.fastq
@@ -56,7 +56,8 @@ SRR097977.fastq@  SRR098026.fastq@  cb_unix_shell/  cb_unix_shell.tgz
 ```
 
 Now with the sequence files symlinked, we can each work in our own home directory
-and accidentally get in each other's way in /broad/hptmp/computing_basics.
+and we won't accidentally get in each other's way in /broad/hptmp/computing_basics.
+<p>
 
 Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns).
 
