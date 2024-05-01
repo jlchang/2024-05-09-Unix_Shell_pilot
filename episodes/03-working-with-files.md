@@ -28,21 +28,47 @@ exercises: 15
 
 Now that we know how to navigate around our directory structure, let's
 start working with our sequencing files. We did a sequencing experiment and
-have two results files, which are stored in our `untrimmed_fastq` directory.
+have two results files, which are stored in an `untrimmed_fastq` directory.
+
+Using the commands we've learned so far, we're going to navigate to a different filesystem.
+Starting from the root directory, we're going to 'broad' instead of 'home'. This filesystem
+is called /broad/hptmp (for high performance temporary).
+[/broad/hptmp](https://intranet.broadinstitute.org/bits/service-catalog/compute-resources/data-storage)
+is available for Broadies who need a temporary space to do high performance computing work.
+Files in /broad/hptmp are automatically deleted after 14 days. We've created a `computing_basics` directory
+for today's workshop.
+
+ Let's navigate to the `untrimmed_fastq` directory in /broad/hptmp/computing_basics.
+
+:::::::::::::::::::::::::::::::::::::::::: spoiler
+
+## What to do if /broad/hptmp/computing_basics has been deleted?
+
+Download `shell-lesson.zip` to your home directory and unpack it.
+
+```bash
+cd
+wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/data/shell-lesson.zip
+unzip shell-lesson.zip
+```
+
+Then, in the following instructions, wherever you see `/broad/hptmp/computing_basics` substitute `~/shell_data`.
+
+::::::::::::::::::::::::::::::::::::::::::
 
 ### Wildcards
 
-Navigate to your `untrimmed_fastq` directory:
+Navigate to our `untrimmed_fastq` directory:
 
 ```bash
-$ cd ~/shell_data/untrimmed_fastq
+cd /broad/hptmp/computing_basics/untrimmed_fastq
 ```
 
 We are interested in looking at the FASTQ files in this directory. We can list
 all files with the .fastq extension using the command:
 
 ```bash
-$ ls *.fastq
+ls *.fastq
 ```
 
 ```output
@@ -55,7 +81,7 @@ Thus, `*.fastq` matches every file that ends with `.fastq`.
 This command:
 
 ```bash
-$ ls *977.fastq
+ls *977.fastq
 ```
 
 ```output
@@ -67,11 +93,12 @@ lists only the file that ends with `977.fastq`.
 This command:
 
 ```bash
-$ ls /usr/bin/*.sh
+ls /usr/bin/*.sh
 ```
 
 ```output
-/usr/bin/amuFormat.sh  /usr/bin/gettext.sh  /usr/bin/gvmap.sh
+/usr/bin/gettext.sh   /usr/bin/lprsetup.sh         /usr/bin/setup-nsssysinit.sh
+/usr/bin/lesspipe.sh  /usr/bin/rescan-scsi-bus.sh  /usr/bin/unix-lpr.sh
 ```
 
 Lists every file in `/usr/bin` that ends in the characters `.sh`.
@@ -102,7 +129,7 @@ what you need to solve the bonus problem.
 
 1. `ls /usr/bin/c*`
 2. `ls /usr/bin/*a*`
-3. `ls /usr/bin/*o`  
+3. `ls /usr/bin/*o`
   Bonus: `ls /usr/bin/*[ac]*`
 
 :::::::::::::::::::::::::
@@ -118,7 +145,7 @@ The `echo` command can also be used with pattern matching characters, such as wi
 Here we will use the `echo` command to see how the wildcard character is interpreted by the shell.
 
 ```bash
-$ echo *.fastq
+echo *.fastq
 ```
 
 ```output
@@ -136,7 +163,7 @@ What would the output look like if the wildcard could *not* be matched? Compare 
 ## Solution
 
 ```bash
-$ echo *.missing
+echo *.missing
 ```
 
 ```output
@@ -144,7 +171,7 @@ $ echo *.missing
 ```
 
 ```bash
-$ ls *.missing
+ls *.missing
 ```
 
 ```output
@@ -172,7 +199,7 @@ A few more useful shortcuts:
 You can also review your recent commands with the `history` command, by entering:
 
 ```bash
-$ history
+history
 ```
 
 to see a numbered list of recent commands. You can reuse one of these commands
@@ -189,7 +216,7 @@ For example, if your history looked like this:
 then you could repeat command #260 by entering:
 
 ```bash
-$ !260
+!260
 ```
 
 Type `!` (exclamation point) and then the number of the command from your history.
@@ -225,7 +252,7 @@ contents using the program `cat`.
 Enter the following command from within the `untrimmed_fastq` directory:
 
 ```bash
-$ cat SRR098026.fastq
+cat SRR098026.fastq
 ```
 
 This will print out all of the contents of the `SRR098026.fastq` to the screen.
@@ -234,17 +261,17 @@ This will print out all of the contents of the `SRR098026.fastq` to the screen.
 
 ## Exercise
 
-1. Print out the contents of the `~/shell_data/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file?
+1. Print out the contents of the `/broad/hptmp/computing_basics/untrimmed_fastq/SRR097977.fastq` file. What is the last line of the file?
 2. From your home directory, and without changing directories,
   use one short command to print the contents of all of the files in
-  the `~/shell_data/untrimmed_fastq` directory.
+  the `/broad/hptmp/computing_basics/untrimmed_fastq` directory.
 
 :::::::::::::::  solution
 
 ## Solution
 
 1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
-2. `cat ~/shell_data/untrimmed_fastq/*`
+2. `cat /broad/hptmp/computing_basics/untrimmed_fastq/*`
 
 :::::::::::::::::::::::::
 
@@ -258,18 +285,18 @@ are identical to the `man` program.
 Enter the following command:
 
 ```bash
-$ less SRR097977.fastq
+less SRR097977.fastq
 ```
 
 Some navigation commands in `less`:
 
-| key   | action                                                                                                       | 
+| key   | action                                                                                                       |
 | ----- | ------------------------------------------------------------------------------------------------------------ |
-| <kbd>Space</kbd> | to go forward                                                                                                | 
-| <kbd>b</kbd>     | to go backward                                                                                               | 
-| <kbd>g</kbd>     | to go to the beginning                                                                                       | 
-| <kbd>G</kbd>     | to go to the end                                                                                             | 
-| <kbd>q</kbd>     | to quit                                                                                                      | 
+| <kbd>Space</kbd> | to go forward                                                                                                |
+| <kbd>b</kbd>     | to go backward                                                                                               |
+| <kbd>g</kbd>     | to go to the beginning                                                                                       |
+| <kbd>G</kbd>     | to go to the end                                                                                             |
+| <kbd>q</kbd>     | to quit                                                                                                      |
 
 `less` also gives you a way of searching through files. Use the
 "/" key to begin a search. Enter the word you would like
@@ -318,7 +345,7 @@ The commands are `head` and `tail` and they let you look at
 the beginning and end of a file, respectively.
 
 ```bash
-$ head SRR098026.fastq
+head SRR098026.fastq
 ```
 
 ```output
@@ -335,7 +362,7 @@ NNNNNNNNNNNNNNNNANNNNNNNNNNNNNNNNNN
 ```
 
 ```bash
-$ tail SRR098026.fastq
+tail SRR098026.fastq
 ```
 
 ```output
@@ -355,7 +382,7 @@ The `-n` option to either of these commands can be used to print the
 first or last `n` lines of a file.
 
 ```bash
-$ head -n 1 SRR098026.fastq
+head -n 1 SRR098026.fastq
 ```
 
 ```output
@@ -363,7 +390,7 @@ $ head -n 1 SRR098026.fastq
 ```
 
 ```bash
-$ tail -n 1 SRR098026.fastq
+tail -n 1 SRR098026.fastq
 ```
 
 ```output
@@ -376,18 +403,18 @@ Although it looks complicated (and it is), it's easy to understand the
 [fastq](https://en.wikipedia.org/wiki/FASTQ_format) format with a little decoding. Some rules about the format
 include...
 
-| Line  | Description                                                                                                  | 
+| Line  | Description                                                                                                  |
 | ----- | ------------------------------------------------------------------------------------------------------------ |
-| 1     | Always begins with '@' and then information about the read                                                   | 
-| 2     | The actual DNA sequence                                                                                      | 
-| 3     | Always begins with a '+' and sometimes the same info in line 1                                               | 
-| 4     | Has a string of characters which represent the quality scores; must have same number of characters as line 2 | 
+| 1     | Always begins with '@' and then information about the read                                                   |
+| 2     | The actual DNA sequence                                                                                      |
+| 3     | Always begins with a '+' and sometimes the same info in line 1                                               |
+| 4     | Has a string of characters which represent the quality scores; must have same number of characters as line 2 |
 
 We can view the first complete read in one of the files in our dataset by using `head` to look at
 the first four lines.
 
 ```bash
-$ head -n 4 SRR098026.fastq
+head -n 4 SRR098026.fastq
 ```
 
 ```output
@@ -419,7 +446,7 @@ Each character is assigned a quality score between 0 and 42 as shown in the char
 ```output
 Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJK
                   |         |         |         |         |
-Quality score:    0........10........20........30........40..                          
+Quality score:    0........10........20........30........40..
 ```
 
 Each quality score represents the probability that the corresponding nucleotide call is
@@ -457,18 +484,18 @@ and change the file permissions so that we can read from, but not write to, the 
 
 First, let's make a copy of one of our FASTQ files using the `cp` command.
 
-Navigate to the `shell_data/untrimmed_fastq` directory and enter:
+Navigate to the `untrimmed_fastq` directory and enter:
 
 ```bash
-$ cp SRR098026.fastq SRR098026-copy.fastq
-$ ls -F
+cp SRR097977.fastq SRR097977-copy.fastq
+ls -F
 ```
 
 ```output
-SRR097977.fastq  SRR098026-copy.fastq  SRR098026.fastq
+SRR097977-copy.fastq  SRR097977.fastq  SRR098026.fastq
 ```
 
-We now have two copies of the `SRR098026.fastq` file, one of them named `SRR098026-copy.fastq`. We'll move this file to a new directory
+We now have two copies of the `SRR097977.fastq` file, one of them named `SRR097977-copy.fastq`. We'll move this file to a new directory
 called `backup` where we'll store our backup data files.
 
 ### Creating Directories
@@ -477,7 +504,7 @@ The `mkdir` command is used to make a directory. Enter `mkdir`
 followed by a space, then the directory name you want to create:
 
 ```bash
-$ mkdir backup
+mkdir backup
 ```
 
 ### Moving / Renaming
@@ -486,24 +513,24 @@ We can now move our backup file to this directory. We can
 move files around using the command `mv`:
 
 ```bash
-$ mv SRR098026-copy.fastq backup
-$ ls backup
+mv SRR097977-copy.fastq backup
+ls backup
 ```
 
 ```output
-SRR098026-copy.fastq
+SRR097977-copy.fastq
 ```
 
 The `mv` command is also how you rename files. Let's rename this file to make it clear that this is a backup:
 
 ```bash
-$ cd backup
-$ mv SRR098026-copy.fastq SRR098026-backup.fastq
-$ ls
+cd backup
+mv SRR097977-copy.fastq SRR097977-backup.fastq
+ls
 ```
 
 ```output
-SRR098026-backup.fastq
+SRR097977-backup.fastq
 ```
 
 ### File Permissions
@@ -515,11 +542,11 @@ that we're only allowed to read (i.e. view) the file, not write to it (i.e. make
 View the current permissions on a file using the `-l` (long) flag for the `ls` command:
 
 ```bash
-$ ls -l
+ls -l
 ```
 
 ```output
--rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-rw-rw-r-- 1 jlchang root  879991940 May  1 00:29 SRR097977-backup.fastq
 ```
 
 The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the
@@ -538,12 +565,12 @@ talk more about this in [a later lesson](05-writing-scripts.md)).
 Our goal for now is to change permissions on this file so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
 
 ```bash
-$ chmod -w SRR098026-backup.fastq
-$ ls -l 
+chmod -w SRR098026-backup.fastq
+ls -l
 ```
 
 ```output
--r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+-r--r--r-- 1 jlchang root  879991940 May  1 00:29 SRR097977-backup.fastq
 ```
 
 ### Removing
@@ -551,13 +578,13 @@ $ ls -l
 To prove to ourselves that you no longer have the ability to modify this file, try deleting it with the `rm` command:
 
 ```bash
-$ rm SRR098026-backup.fastq
+rm SRR098026-backup.fastq
 ```
 
 You'll be asked if you want to override your file permissions:
 
 ```output
-rm: remove write-protected regular file ‘SRR098026-backup.fastq'? 
+rm: remove write-protected regular file ‘SRR098026-backup.fastq'?
 ```
 
 You should enter `n` for no. If you enter `n` (for no), the file will not be deleted. If you enter `y`, you will delete the file. This gives us an extra
@@ -573,8 +600,8 @@ we just made.
 Enter the following command:
 
 ```bash
-$ cd ..
-$ rm -r backup
+cd ..
+rm -r backup
 ```
 
 This will delete not only the directory, but all files within the directory. If you have write-protected files in the directory,
@@ -584,10 +611,10 @@ you will be asked whether you want to override your permission settings.
 
 ## Exercise
 
-Starting in the `shell_data/untrimmed_fastq/` directory, do the following:
+Starting in your home directory directory, do the following:
 
 1. Make sure that you have deleted your backup directory and all files it contains.
-2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't
+2. Create a backup of each of our FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't
   learned yet how to do this
   with a wildcard.)
 3. Use a wildcard to move all of your backup files to a new backup directory.
@@ -598,9 +625,9 @@ Starting in the `shell_data/untrimmed_fastq/` directory, do the following:
 ## Solution
 
 1. `rm -r backup`
-2. `cp SRR098026.fastq SRR098026-backup.fastq` and `cp SRR097977.fastq SRR097977-backup.fastq`
+2. `cp /broad/hptmp/computing_basics/SRR098026.fastq SRR098026-backup.fastq` and `cp /broad/hptmp/computing_basics/SRR097977.fastq SRR097977-backup.fastq`
 3. `mkdir backup` and `mv *-backup.fastq backup`
-4. `chmod -w backup/*-backup.fastq`  
+4. `chmod -w backup/*-backup.fastq`
   It's always a good idea to check your work with `ls -l backup`. You should see something like:
 
 ```output
@@ -620,5 +647,3 @@ Starting in the `shell_data/untrimmed_fastq/` directory, do the following:
 - The `history` command and the up arrow on your keyboard can be used to repeat recently used commands.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
