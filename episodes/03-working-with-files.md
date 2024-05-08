@@ -548,6 +548,7 @@ $ ls -l
 ```output
 -rw-rw-r-- 1 jlchang root  879991940 May  1 00:29 SRR097977-backup.fastq
 ```
+Note: your output will show your username where you see `jlchang` above.  
 
 The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the
 permissions list. The first character in this list is related to file type, not permissions, so we'll ignore it for now. The next three
@@ -572,6 +573,7 @@ $ ls -l
 ```output
 -r--r--r-- 1 jlchang root  879991940 May  1 00:29 SRR097977-backup.fastq
 ```
+Note: your output will show your username where you see `jlchang` above.  
 
 ### Removing
 

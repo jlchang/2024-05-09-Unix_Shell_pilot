@@ -68,8 +68,7 @@ $ pwd
 ```output
 /home/unix/jlchang/cb_unix_shell
 ```
-
-(where `jlchang` is your Broad username)
+Note: your output will show your username where you see `jlchang` above.
 
 ```bash
 $ ls
@@ -230,8 +229,7 @@ You will see:
 ```output
 /home/unix/jlchang
 ```
-
-(where `jlchang` is your Broad username)
+Note: your output will show your username where you see `jlchang` above.
 
 This is the full name of your home directory. This tells you that you
 are in a directory named with your username, which sits inside a directory
@@ -258,10 +256,10 @@ $ cd
 I can also navigate to the `Green_Eggs_and_Ham` directory using:
 
 ```bash
-$ cd /home/unix/jlchang/cb_unix_shell/Seuss/Green_Eggs_and_Ham
+$ cd /home/unix/<username>/cb_unix_shell/Seuss/Green_Eggs_and_Ham
 ```
 
-You'll need to substitute 'jlchang' with your Broad username.
+You'll need to substitute `<username>` with your Broad username (without angle brackets).
 
 These two commands have the same effect, they both take us to the `.hidden` directory.
 The first uses the absolute path, giving the full address from the home directory. The

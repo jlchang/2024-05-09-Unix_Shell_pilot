@@ -63,6 +63,11 @@ you'll use SecureCRT.
 1. Launch your preferred SSH client, such as Terminal (Mac or Unix) or SecureCRT (Windows)
 1. Log in to a Broad login server using the [instructions on the Broad Intranet](https://intranet.broadinstitute.org/bits/service-catalog/scientific-computing/login-servers).
 
+:::::::::::::::::::::::::::::::::::::::::: spoiler
+## Your Broad username
+The portion of your Broad email address before the @ symbol is your Broad username.
+::::::::::::::::::::::::::::::::::::::::::
+
 After logging in, you will see a screen showing something like this:
 
 ```output
@@ -197,15 +202,16 @@ the directory that the computer assumes we want to run commands in,
 unless we explicitly specify something else.
 Here,
 the computer's response is `/home/unix/<username>`, also known as your home directory.
-Angle brackets give you a hint to substitute an appropriate value (without the brackets).
+Angle brackets give you a hint to substitute an appropriate value (without the brackets). 
 
 ```bash
 $ pwd
 ```
 
 ```output
-/home/unix/jlchang
+/home/unix/<username>
 ```
+Your screen will show your username where you see <username> in the output box above.
 
 Let's look at our file system. We can see what files and subdirectories are in this directory by running `ls`,
 which stands for "listing":
@@ -349,6 +355,7 @@ drwxrwsr-x   4 jlchang sequence      68 Mar 13  2013 Seuss
 -rw-rw-r--   1 jlchang sequence   19085 Mar 14  2013 data
 drwxrwsr-x 451 jlchang sequence   33225 Mar 14  2013 prodinfo454
 ```
+Note: your output will show your username where you see `jlchang` above.
 
 The additional information given includes the name of the owner of the file,
 when the file was last modified, and whether the current user has permission
