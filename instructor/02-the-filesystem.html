@@ -92,11 +92,11 @@
   The Unix Shell (pilot)
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 18%" class="percentage">
-    18%
+<aside class="col-md-12 lesson-progress"><div style="width: 12%" class="percentage">
+    12%
   </div>
   <div class="progress incubator">
-    <div class="progress-bar incubator" role="progressbar" style="width: 18%" aria-valuenow="18" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar incubator" role="progressbar" style="width: 12%" aria-valuenow="12" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -257,7 +257,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Navigating Files and Directories</h1>
-        <p>Last updated on 2024-05-01 |
+        <p>Last updated on 2024-05-08 |
         
         <a href="https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/edit/main/episodes/02-the-filesystem.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -309,14 +309,14 @@ location within our file system. We’ve also learned how to use
 contents of a directory. Now we’re going to learn some additional
 commands for moving around within our file system.</p>
 <p>Use the commands we’ve learned so far to navigate to the
-<code>cb_unix_shell/Seuss</code> directory, if you’re not already
+<code>cb_unix_shell/Dahl</code> directory, if you’re not already
 there.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> cb_unix_shell</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="bu">cd</span> Seuss</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">$</span> cd cb_unix_shell</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">$</span> cd Dahl</span></code></pre>
 </div>
 <p>What if we want to move back up and out of this directory and to our
 top level directory? Can we type <code>cd cb_unix_shell</code>? Try it
@@ -324,7 +324,7 @@ and see what happens.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">cd</span> cb_unix_shell</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> cd cb_unix_shell</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -340,7 +340,7 @@ one directory level.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">cd</span> ..</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> cd ..</span></code></pre>
 </div>
 <p>Now we can use <code>pwd</code> to make sure that we are in the
 directory we intended to navigate to, and <code>ls</code> to check that
@@ -348,18 +348,19 @@ the contents of the directory are correct.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>/home/unix/jlchang/cb_unix_shell</code></pre>
 </div>
-<p>(where <code>jlchang</code> is your Broad username)</p>
+<p>Note: your output will show your username where you see
+<code>jlchang</code> above.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -372,7 +373,7 @@ back one level in our file system.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">ls</span> ../../</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> ls ../../</span></code></pre>
 </div>
 <p>prints the contents of <code>/home/unix</code>.</p>
 <div id="finding-hidden-directories" class="callout challenge">
@@ -398,14 +399,14 @@ example <code>.my_hidden_directory</code></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>First use the <code>man</code> command to look at the options for
 <code>ls</code>.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">man</span> ls</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> man ls</span></code></pre>
 </div>
 <p>The <code>-a</code> option is short for <code>all</code> and says
 that it causes <code>ls</code> to “not ignore entries starting with .”
@@ -413,7 +414,7 @@ This is the option we want.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-a</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -425,14 +426,14 @@ navigate to that directory using <code>cd</code>.</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="bu">cd</span> .hidden</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> cd .hidden</span></code></pre>
 </div>
 <p>And then list the contents of the directory using
 <code>ls</code>.</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">ls</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> ls</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -458,13 +459,13 @@ view. Navigate to your home directory if you are not already there.</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="bu">cd</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="ex">$</span> cd</span></code></pre>
 </div>
 <p>Then enter the command:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">ls</span> cb_unix_shell</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> ls cb_unix_shell</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -478,8 +479,8 @@ directory without you needing to navigate there.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="bu">cd</span></span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="bu">cd</span> cb_unix_shell/Seuss</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="ex">$</span> cd cb_unix_shell/Seuss</span></code></pre>
 </div>
 <p>This will take you to the <code>Seuss</code> directory without having
 to go through the intermediate directory.</p>
@@ -501,13 +502,13 @@ to go through the intermediate directory.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="bu">cd</span></span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="fu">ls</span> cb_unix_shell/Seuss</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="ex">$</span> ls cb_unix_shell/Seuss</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -529,8 +530,8 @@ in that hierarchy. Navigate to the home directory, then enter the
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="bu">cd</span></span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="ex">$</span> pwd</span></code></pre>
 </div>
 <p>You will see:</p>
 <div class="codewrapper">
@@ -538,7 +539,8 @@ in that hierarchy. Navigate to the home directory, then enter the
 </h3>
 <pre class="output" tabindex="0"><code>/home/unix/jlchang</code></pre>
 </div>
-<p>(where <code>jlchang</code> is your Broad username)</p>
+<p>Note: your output will show your username where you see
+<code>jlchang</code> above.</p>
 <p>This is the full name of your home directory. This tells you that you
 are in a directory named with your username, which sits inside a
 directory called <code>unix</code> which is found in a directory called
@@ -553,7 +555,7 @@ directory in <code>/</code>. More on <code>root</code> and
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="bu">cd</span> cb_unix_shell/Seuss/Green_Eggs_and_Ham/</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">$</span> cd cb_unix_shell/Seuss/Green_Eggs_and_Ham/</span></code></pre>
 </div>
 <p>This jumps forward multiple levels to the
 <code>Green_Eggs_and_Ham</code> directory. Now go back to the home
@@ -561,21 +563,23 @@ directory.</p>
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="bu">cd</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">$</span> cd</span></code></pre>
 </div>
 <p>I can also navigate to the <code>Green_Eggs_and_Ham</code> directory
 using:</p>
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="bu">cd</span> /home/unix/jlchang/cb_unix_shell/Seuss/Green_Eggs_and_Ham</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="ex">$</span> cd /home/unix/<span class="op">&lt;</span>username<span class="op">&gt;</span>/cb_unix_shell/Seuss/Green_Eggs_and_Ham</span></code></pre>
 </div>
-<p>You’ll need to substitute ‘jlchang’ with your Broad username.</p>
+<p>You’ll need to substitute <code>&lt;username&gt;</code> with your
+Broad username (without angle brackets).</p>
 <p>These two commands have the same effect, they both take us to the
-<code>.hidden</code> directory. The first uses the absolute path, giving
-the full address from the home directory. The second uses a relative
-path, giving only the address from the working directory. A full path
-always starts with a <code>/</code>. A relative path does not.</p>
+<code>Green_Eggs_and_Ham</code> directory. The first uses a relative
+path, giving only the address from the working directory (in this case,
+your home directory). The second uses the absolute path, giving the full
+address from the root directory. A full path always starts with a
+<code>/</code>. A relative path does not.</p>
 <p>A relative path is like getting directions from someone on the
 street. They tell you to “go right at the stop sign, and then turn left
 on Main Street”. That works great if you’re standing there together, but
@@ -583,10 +587,7 @@ not so well if you’re trying to tell someone how to get there from
 another country. A full path is like GPS coordinates. It tells you
 exactly where something is no matter where you are right now.</p>
 <p>You can usually use either a full path or a relative path depending
-on what is most convenient. If we are in the home directory, it is more
-convenient to enter the full path. If we are in the working directory,
-it is more convenient to enter the relative path since it involves less
-typing.</p>
+on what is most convenient or involves less typing.</p>
 <p>Over time, it will become easier for you to keep a mental note of the
 structure of the directories that you are using and how to quickly
 navigate amongst them.</p>
@@ -601,11 +602,11 @@ navigate amongst them.</p>
 <p>Using the filesystem diagram below, if <code>pwd</code> displays
 <code>/Users/thing</code>, what will <code>ls ../backup</code>
 display?</p>
-<ol style="list-style-type: decimal"><li><code>../backup: No such file or directory</code></li>
+<figure><img src="../fig/filesystem-challenge.svg" alt="File System for Challenge Questions" class="figure mx-auto d-block"></figure><ol style="list-style-type: decimal"><li><code>../backup: No such file or directory</code></li>
 <li><code>2012-12-01 2013-01-08 2013-01-27</code></li>
 <li><code>2012-12-01/ 2013-01-08/ 2013-01-27/</code></li>
 <li><code>original pnas_final pnas_sub</code></li>
-</ol><figure><img src="../fig/filesystem-challenge.svg" alt="File System for Challenge Questions" class="figure mx-auto d-block"></figure></div>
+</ol></div>
 </div>
 </div>
 <div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
@@ -613,7 +614,7 @@ display?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>No: there <em>is</em> a directory <code>backup</code> in
 <code>/Users</code>.</li>
@@ -643,20 +644,20 @@ to avoid them and work within your home directory. Dealing with the
 <code>~</code>, is a shortcut for your home directory. In our case, the
 <code>root</code> directory is <strong>three</strong> levels above our
 <code>home</code> directory, so <code>cd</code> or <code>cd ~</code>
-will take you to <code>/home/unix/&lt;your Broad username&gt;</code> and
+will take you to <code>/home/unix/&lt;username&gt;</code> and
 <code>cd /</code> will take you to <code>/</code>. Navigate to the
 <code>cb_unix_shell</code> directory:</p>
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="bu">cd</span></span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a><span class="bu">cd</span> cb_unix_shell</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="ex">$</span> cd</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a><span class="ex">$</span> cd cb_unix_shell</span></code></pre>
 </div>
 <p>Then enter the command:</p>
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">ls</span> ~</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="ex">$</span> ls ~</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -750,8 +751,8 @@ any links that you are not going to use.
   "url": "https://jlchang.github.io/2024-05-09-Unix_Shell_pilot/instructor/02-the-filesystem.html",
   "identifier": "https://jlchang.github.io/2024-05-09-Unix_Shell_pilot/instructor/02-the-filesystem.html",
   "dateCreated": "2024-04-29",
-  "dateModified": "2024-05-01",
-  "datePublished": "2024-05-07"
+  "dateModified": "2024-05-08",
+  "datePublished": "2024-05-08"
 }
 
   </script><script>
