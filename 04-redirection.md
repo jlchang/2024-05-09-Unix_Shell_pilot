@@ -46,9 +46,9 @@ nucleotide at that position in the DNA sequence.
 We'll search for strings inside of our fastq files. But first, we're going to make some symlinks. If you're a Mac user, you may be familiar with right-click to `Make Alias`; On Windows, you'd right-click to `Create Shortcut`. A symlink points to a file without making another copy.
 
 ```bash
-ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq SRR098026.fastq
-ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR097977.fastq SRR097977.fastq
-ls -F
+$ ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq SRR098026.fastq
+$ ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR097977.fastq SRR097977.fastq
+$ ls -F
 ```
 
 ```output
@@ -77,7 +77,7 @@ filtering out low-quality reads. You'll learn how to use one such tool in
 Let's search for the string NNNNNNNNNN in the SRR098026 file:
 
 ```bash
-grep NNNNNNNNNN SRR098026.fastq
+$ grep NNNNNNNNNN SRR098026.fastq
 ```
 
 This command returns a lot of output to the terminal. Every single line in the SRR098026
@@ -94,7 +94,7 @@ each match. The `-A` argument returns a specific number of lines after each matc
 matching line, so we add `-B1 -A2` to our grep command:
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq
 ```
 
 One of the sets of lines returned by this command is:
@@ -180,7 +180,7 @@ in our FASTQ files that contain
 'NNNNNNNNNN' to another file called `bad_reads.txt`.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -207,7 +207,7 @@ make sure your file matches your instructor's output.
 As of Sept. 2020, wc gives the following output:
 
 ```bash
-wc bad_reads.txt
+$ wc bad_reads.txt
 ```
 
 ```output
@@ -218,7 +218,7 @@ This will tell us the number of lines, words and characters in the file. If we
 want only the number of lines, we can use the `-l` flag for `lines`.
 
 ```bash
-wc -l bad_reads.txt
+$ wc -l bad_reads.txt
 ```
 
 ```output
@@ -236,7 +236,7 @@ How many sequences are there in `SRR098026.fastq`? Remember that every sequence 
 ## Solution
 
 ```bash
-wc -l SRR098026.fastq
+$ wc -l SRR098026.fastq
 ```
 
 ```output
@@ -248,13 +248,13 @@ Now you can divide this number by four to get the number of sequences in your fa
 This can be done using [shell integer arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)
 
 ```bash
-echo $((996/4))
+$ echo $((996/4))
 ```
 
 Note, this will do integer division - if you need floating point arithmetic you can use [bc - an arbitrary precision calculator](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
 
 ```bash
-echo "996/4" | bc
+$ echo "996/4" | bc
 ```
 
 ```output
@@ -276,8 +276,8 @@ How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns?
 ## Solution
 
 ```bash
-grep NNN SRR098026.fastq > bad_reads.txt
-wc -l bad_reads.txt
+$ grep NNN SRR098026.fastq > bad_reads.txt
+$ wc -l bad_reads.txt
 ```
 
 ```output
@@ -295,8 +295,8 @@ This is called "overwriting" and, just like you don't want to overwrite your vid
 of your kid's first birthday party, you also want to avoid overwriting your data files.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
-wc -l bad_reads.txt
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+$ wc -l bad_reads.txt
 ```
 
 ```output
@@ -304,8 +304,8 @@ wc -l bad_reads.txt
 ```
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR097977.fastq > bad_reads.txt
-wc -l bad_reads.txt
+$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq > bad_reads.txt
+$ wc -l bad_reads.txt
 ```
 
 ```output
@@ -320,8 +320,8 @@ We can avoid overwriting our files by using the command `>>`. `>>` is known as t
 append new output to the end of a file, rather than overwriting it.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
-wc -l bad_reads.txt
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+$ wc -l bad_reads.txt
 ```
 
 ```output
@@ -329,8 +329,8 @@ wc -l bad_reads.txt
 ```
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR097977.fastq >> bad_reads.txt
-wc -l bad_reads.txt
+$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq >> bad_reads.txt
+$ wc -l bad_reads.txt
 ```
 
 ```output
@@ -342,8 +342,8 @@ The output of our second call to `wc` shows that we have not overwritten our ori
 We can also do this with a single line of code by using a wildcard:
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.txt
-wc -l bad_reads.txt
+$ grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.txt
+$ wc -l bad_reads.txt
 ```
 
 ```output
@@ -360,7 +360,7 @@ and then ran the command above using a `.fastq` extension instead of a `.txt` ex
 would give us a warning.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
+$ grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
 ```
 
 ```output
@@ -392,7 +392,7 @@ look at it, like we can with `less`. Well it turns out that we can! We can redir
 from our `grep` call through the `less` command.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | less
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | less
 ```
 
 We can now see the output from our `grep` call within the `less` interface. We can use the up and down arrows
@@ -403,7 +403,7 @@ the output of the grep search to the command `wc -l`. This can be helpful for in
 you would like to save it to a file.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | wc -l
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | wc -l
 ```
 
 Because we asked `grep` for all four lines of each FASTQ record, we need to divide the output by
@@ -413,8 +413,8 @@ If we explore `bad_reads.txt` using `less`, we might be able to notice what is c
 number of lines. Luckily, this issue happens by the end of the file so we can also spot it with `tail`.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
-tail bad_reads.txt
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+$ tail bad_reads.txt
 ```
 
 ```output
@@ -435,8 +435,8 @@ lines matching the pattern, and indicate groups of lines which did not match the
 To fix this issue, we can redirect the output of grep to a second instance of `grep` as follows.
 
 ```bash
-grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | grep -v '^--' > bad_reads.fastq
-tail bad_reads.fastq
+$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | grep -v '^--' > bad_reads.fastq
+$ tail bad_reads.fastq
 ```
 
 ```output
@@ -525,7 +525,7 @@ foo is abcEFG
 Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven't finished typing a complete command yet. A semicolon, `;`, can be used to separate two commands written on a single line.
 
 ```bash
-cd ../untrimmed_fastq/
+$ cd ../untrimmed_fastq/
 ```
 
 ```bash
@@ -565,7 +565,7 @@ every time the loop iterates, so it would only have text from the last variable 
 Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the `.fastq` extension from the files that we've been working with.
 
 ```bash
-basename SRR097977.fastq .fastq
+$ basename SRR097977.fastq .fastq
 ```
 
 We see that this returns just the SRR accession, and no longer has the .fastq file extension on it.
@@ -577,7 +577,7 @@ SRR097977
 If we try the same thing but use `.fasta` as the file extension instead, nothing happens. This is because basename only works when it exactly matches a string in the file.
 
 ```bash
-basename SRR097977.fastq .fasta
+$ basename SRR097977.fastq .fasta
 ```
 
 ```output
