@@ -32,16 +32,16 @@ Use the commands we've learned so far to navigate to the `cb_unix_shell/Seuss` d
 you're not already there.
 
 ```bash
-cd
-cd cb_unix_shell
-cd Seuss
+$ cd
+$ cd cb_unix_shell
+$ cd Seuss
 ```
 
 What if we want to move back up and out of this directory and to our top level
 directory? Can we type `cd cb_unix_shell`? Try it and see what happens.
 
 ```bash
-cd cb_unix_shell
+$ cd cb_unix_shell
 ```
 
 ```output
@@ -55,14 +55,14 @@ above the one you were located in.
 We have a special command to tell the computer to move us back or up one directory level.
 
 ```bash
-cd ..
+$ cd ..
 ```
 
 Now we can use `pwd` to make sure that we are in the directory we intended to navigate
 to, and `ls` to check that the contents of the directory are correct.
 
 ```bash
-pwd
+$ pwd
 ```
 
 ```output
@@ -72,7 +72,7 @@ pwd
 (where `jlchang` is your Broad username)
 
 ```bash
-ls
+$ ls
 ```
 
 ```output
@@ -84,7 +84,7 @@ From this output, we can see that `..` did indeed take us back one level in our 
 You can chain these together like so:
 
 ```bash
-ls ../../
+$ ls ../../
 ```
 
 prints the contents of `/home/unix`.
@@ -106,14 +106,14 @@ Hint: hidden files and folders in Unix start with `.`, for example `.my_hidden_d
 First use the `man` command to look at the options for `ls`.
 
 ```bash
-man ls
+$ man ls
 ```
 
 The `-a` option is short for `all` and says that it causes `ls` to "not ignore
 entries starting with ." This is the option we want.
 
 ```bash
-ls -a
+$ ls -a
 ```
 
 ```output
@@ -124,13 +124,13 @@ The name of the hidden directory is `.hidden`. We can navigate to that directory
 using `cd`.
 
 ```bash
-cd .hidden
+$ cd .hidden
 ```
 
 And then list the contents of the directory using `ls`.
 
 ```bash
-ls
+$ ls
 ```
 
 ```output
@@ -159,13 +159,13 @@ give `ls` the names of other directories to view. Navigate to your
 home directory if you are not already there.
 
 ```bash
-cd
+$ cd
 ```
 
 Then enter the command:
 
 ```bash
-ls cb_unix_shell
+$ ls cb_unix_shell
 ```
 
 ```output
@@ -180,8 +180,8 @@ The `cd` command works in a similar way.
 Try entering:
 
 ```bash
-cd
-cd cb_unix_shell/Seuss
+$ cd
+$ cd cb_unix_shell/Seuss
 ```
 
 This will take you to the `Seuss` directory without having to go through
@@ -199,8 +199,8 @@ directory.
 ## Solution
 
 ```bash
-cd
-ls cb_unix_shell/Seuss
+$ cd
+$ ls cb_unix_shell/Seuss
 ```
 
 ```output
@@ -221,8 +221,8 @@ hierarchy. Navigate to the home directory, then enter the `pwd`
 command.
 
 ```bash
-cd
-pwd
+$ cd
+$ pwd
 ```
 
 You will see:
@@ -245,20 +245,20 @@ in `/`. More on `root` and `home` in the next section.
 Now enter the following command:
 
 ```bash
-cd cb_unix_shell/Seuss/Green_Eggs_and_Ham/
+$ cd cb_unix_shell/Seuss/Green_Eggs_and_Ham/
 ```
 
 This jumps forward multiple levels to the `Green_Eggs_and_Ham` directory.
 Now go back to the home directory.
 
 ```bash
-cd
+$ cd
 ```
 
 I can also navigate to the `Green_Eggs_and_Ham` directory using:
 
 ```bash
-cd /home/unix/jlchang/cb_unix_shell/Seuss/Green_Eggs_and_Ham
+$ cd /home/unix/jlchang/cb_unix_shell/Seuss/Green_Eggs_and_Ham
 ```
 
 You'll need to substitute 'jlchang' with your Broad username.
@@ -331,14 +331,14 @@ In our case, the `root` directory is **three** levels above our
 `cb_unix_shell` directory:
 
 ```bash
-cd
-cd cb_unix_shell
+$ cd
+$ cd cb_unix_shell
 ```
 
 Then enter the command:
 
 ```bash
-ls ~
+$ ls ~
 ```
 
 ```output

@@ -1,6 +1,6 @@
 ---
 title: Introducing the Shell
-teaching: 20
+teaching: 10
 exercises: 10
 ---
 
@@ -126,7 +126,7 @@ Otherwise let's continue. You can clear your screen using the `clear` command.
 Type the word `clear` into the terminal and press the `Enter` key.
 
 ```bash
-clear
+$ clear
 ```
 
 This will scroll your screen down to give you a fresh screen and will make it easier to read.
@@ -153,7 +153,7 @@ which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+:::::::::::::::::::::::::::::::::::::::::: spoiler
 
 ## Preparation Magic
 
@@ -177,7 +177,7 @@ Alternatively, you can reset your original prompt by exiting the shell and openi
 
 This isn't necessary to follow along (in fact, your prompt may have other helpful information you want to know about).  This is up to you!
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::
 
 ```bash
 $
@@ -200,7 +200,7 @@ the computer's response is `/home/unix/<username>`, also known as your home dire
 Angle brackets give you a hint to substitute an appropriate value (without the brackets).
 
 ```bash
-pwd
+$ pwd
 ```
 
 ```output
@@ -211,7 +211,7 @@ Let's look at our file system. We can see what files and subdirectories are in t
 which stands for "listing":
 
 ```bash
-ls
+$ ls
 ```
 
 ```output
@@ -227,7 +227,7 @@ Your output may look different. (Confession, I cleaned up because I knew you wer
 On most Unix systems, you can grab a file over the internet using a tool called `wget`.
 
 ```bash
-wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/files/cb_unix_shell.tgz
+$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/files/cb_unix_shell.tgz
 ```
 
 ```output
@@ -252,7 +252,7 @@ cb_unix_shell.tgz              100%[============================================
 Now if we `ls`
 
 ```bash
-ls
+$ ls
 ```
 
 ```output
@@ -268,7 +268,7 @@ tar -xzf cb_unix_shell.tgz
 Now if we `ls` again
 
 ```bash
-ls
+$ ls
 ```
 
 ```output
@@ -285,13 +285,13 @@ Let's say we want to navigate to the `cb_unix_shell` directory we saw above.  We
 use the following command to get there:
 
 ```bash
-cd cb_unix_shell
+$ cd cb_unix_shell
 ```
 
 Let's look at what is in this directory:
 
 ```bash
-ls
+$ ls
 ```
 
 ```output
@@ -302,7 +302,7 @@ We can make the `ls` output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
 ```bash
-ls -F
+$ ls -F
 ```
 
 ```output
@@ -315,7 +315,7 @@ there are no decorations, it's a file. Broad servers already color code by defau
 `ls` has lots of other options. To find out what they are, we can type:
 
 ```bash
-man ls
+$ man ls
 ```
 
 `man` (short for manual) displays detailed documentation (also referred as man page or man file)
@@ -338,7 +338,7 @@ gives you that you don't see with the bare `ls` command?
 ## Solution
 
 ```bash
-ls -l
+$ ls -l
 ```
 
 ```output
@@ -362,11 +362,11 @@ No one can possibly learn all of these arguments, that's what the manual page
 is for. You can (and should) refer to the manual page or other help files
 as needed.
 
-Let's go into the `Seuss` directory and see what is in there.
+Let's go into the `Dahl` directory and see what is in there.
 
 ```bash
-cd Seuss
-ls -F
+$ cd Dahl
+$ ls -F
 ```
 
 ```output
@@ -386,7 +386,7 @@ directory or file name.
 From the `Dahl` directory:
 
 ```bash
-cd J<tab>
+$ cd J<tab>
 ```
 
 The shell will fill in the rest of the directory name for
@@ -395,7 +395,7 @@ The shell will fill in the rest of the directory name for
 Now change directories to `James_and_the_Giant_Peach` in `Dahl`
 
 ```bash
-cd James_and_the_Giant_Peach
+$ cd James_and_the_Giant_Peach
 
 Using tab complete can be very helpful. However, it will only autocomplete
 a file or directory name if you've typed enough characters to provide
@@ -405,7 +405,7 @@ For example, if we now try to list the files which names start with  `Th`
 by using tab complete:
 
 ```bash
-ls Au<tab>
+$ ls Au<tab>
 ```
 
 The shell auto-completes your command to `Aunt_Sp`, because there are two files in
@@ -413,7 +413,7 @@ the directory that begin with `Aunt_Sp`. When you hit
 <kbd>Tab</kbd> again, the shell will list the possible choices.
 
 ```bash
-ls Aunt_Sp<tab><tab>
+$ ls Aunt_Sp<tab><tab>
 ```
 
 ```output
@@ -424,7 +424,7 @@ Tab completion can also fill in the names of programs, which can be useful if yo
 remember the beginning of a program name.
 
 ```bash
-pw<tab><tab>
+$ pw<tab><tab>
 ```
 
 ```output
