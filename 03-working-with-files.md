@@ -42,14 +42,15 @@ for today's workshop.
 
 :::::::::::::::::::::::::::::::::::::::::: spoiler
 
-## What to do if /broad/hptmp/computing_basics has been deleted?
+## What if /broad/hptmp/computing_basics is missing?
 
-Download `shell-files.zip` to your home directory and unpack it.
+
+Download `shell_files.zip` to your home directory and unpack it.
 
 ```bash
 $ cd
-$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/data/shell-files.zip
-$ unzip shell-files.zip
+$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/data/shell_files.zip
+$ unzip shell_files.zip
 ```
 
 Then, in the following instructions, wherever you see `/broad/hptmp/computing_basics` substitute `~/shell_files`.
