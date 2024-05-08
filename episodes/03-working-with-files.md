@@ -44,6 +44,7 @@ for today's workshop.
 
 ## What if /broad/hptmp/computing_basics is missing?
 
+
 Download `shell_files.zip` to your home directory and unpack it.
 
 ```bash
