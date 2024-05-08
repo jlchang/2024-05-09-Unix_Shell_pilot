@@ -44,15 +44,15 @@ for today's workshop.
 
 ## What to do if /broad/hptmp/computing_basics has been deleted?
 
-Download `shell-lesson.zip` to your home directory and unpack it.
+Download `shell-files.zip` to your home directory and unpack it.
 
 ```bash
 $ cd
-$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/data/shell-lesson.zip
-$ unzip shell-lesson.zip
+$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/data/shell-files.zip
+$ unzip shell-files.zip
 ```
 
-Then, in the following instructions, wherever you see `/broad/hptmp/computing_basics` substitute `~/shell_data`.
+Then, in the following instructions, wherever you see `/broad/hptmp/computing_basics` substitute `~/shell_files`.
 
 ::::::::::::::::::::::::::::::::::::::::::
 
@@ -252,10 +252,10 @@ contents using the program `cat`.
 Enter the following command from within the `untrimmed_fastq` directory:
 
 ```bash
-$ cat SRR098026.fastq
+$ cat SRR097977.fastq
 ```
 
-This will print out all of the contents of the `SRR098026.fastq` to the screen.
+This will print out all of the contents of the `SRR097977.fastq` to the screen.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

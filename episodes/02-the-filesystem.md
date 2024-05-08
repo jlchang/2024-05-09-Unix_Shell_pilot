@@ -28,13 +28,13 @@ We've also learned how to use `cd` to change locations and `ls` to list the cont
 of a directory. Now we're going to learn some additional commands for moving around
 within our file system.
 
-Use the commands we've learned so far to navigate to the `cb_unix_shell/Seuss` directory, if
+Use the commands we've learned so far to navigate to the `cb_unix_shell/Dahl` directory, if
 you're not already there.
 
 ```bash
 $ cd
 $ cd cb_unix_shell
-$ cd Seuss
+$ cd Dahl
 ```
 
 What if we want to move back up and out of this directory and to our top level
@@ -261,9 +261,8 @@ $ cd /home/unix/<username>/cb_unix_shell/Seuss/Green_Eggs_and_Ham
 
 You'll need to substitute `<username>` with your Broad username (without angle brackets).
 
-These two commands have the same effect, they both take us to the `.hidden` directory.
-The first uses the absolute path, giving the full address from the home directory. The
-second uses a relative path, giving only the address from the working directory. A full
+These two commands have the same effect, they both take us to the `Green_Eggs_and_Ham` directory.
+The first uses a relative path, giving only the address from the working directory (in this case, your home directory).  The second uses the absolute path, giving the full address from the root directory. A full
 path always starts with a `/`. A relative path does not.
 
 A relative path is like getting directions from someone on the street. They tell you to
@@ -272,10 +271,7 @@ you're standing there together, but not so well if you're trying to tell someone
 get there from another country. A full path is like GPS coordinates. It tells you exactly
 where something is no matter where you are right now.
 
-You can usually use either a full path or a relative path depending on what is most convenient.
-If we are in the home directory, it is more convenient to enter the full path.
-If we are in the working directory, it is more convenient to enter the relative path
-since it involves less typing.
+You can usually use either a full path or a relative path depending on what is most convenient or involves less typing.
 
 Over time, it will become easier for you to keep a mental note of the
 structure of the directories that you are using and how to quickly
@@ -286,14 +282,14 @@ navigate amongst them.
 ## Relative path resolution
 
 Using the filesystem diagram below, if `pwd` displays `/Users/thing`,
-what will `ls ../backup` display?
+what will `ls ../backup` display?  
+
+![](fig/filesystem-challenge.svg){alt='File System for Challenge Questions'}
 
 1. `../backup: No such file or directory`
 2. `2012-12-01 2013-01-08 2013-01-27`
 3. `2012-12-01/ 2013-01-08/ 2013-01-27/`
 4. `original pnas_final pnas_sub`
-
-![](fig/filesystem-challenge.svg){alt='File System for Challenge Questions'}
 
 :::::::::::::::  solution
 
@@ -325,7 +321,7 @@ home directory. Dealing with the `home` directory is very common.
 The tilde character, `~`, is a shortcut for your home directory.
 In our case, the `root` directory is **three** levels above our
 `home` directory, so `cd` or `cd ~` will take you to
-`/home/unix/<your Broad username>` and `cd /` will take you to `/`. Navigate to the
+`/home/unix/<username>` and `cd /` will take you to `/`. Navigate to the
 `cb_unix_shell` directory:
 
 ```bash

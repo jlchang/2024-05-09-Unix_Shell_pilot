@@ -158,9 +158,20 @@ which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 
-:::::::::::::::::::::::::::::::::::::::::: spoiler
 
-## Preparation Magic
+
+```bash
+$
+```
+
+The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
+your shell may use a different character as a prompt and may add information before
+the prompt. When typing commands, either from these lessons or from other sources,
+do not type the prompt, only the commands that follow it.
+
+:::::::::::::::::::::::::::::::::::::::: spoiler
+
+## [Optional] Customizing your Unix prompt
 
 You may have a prompt (the characters to the left of the cursor) that looks different from the `$` sign character used here.
 If you would like to change your prompt to match the example prompt, first type the command:
@@ -182,16 +193,7 @@ Alternatively, you can reset your original prompt by exiting the shell and openi
 
 This isn't necessary to follow along (in fact, your prompt may have other helpful information you want to know about).  This is up to you!
 
-::::::::::::::::::::::::::::::::::::::::::
-
-```bash
-$
-```
-
-The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
-your shell may use a different character as a prompt and may add information before
-the prompt. When typing commands, either from these lessons or from other sources,
-do not type the prompt, only the commands that follow it.
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 Let's find out where we are by running a command called `pwd`
 (which stands for "print working directory").
@@ -202,7 +204,7 @@ the directory that the computer assumes we want to run commands in,
 unless we explicitly specify something else.
 Here,
 the computer's response is `/home/unix/<username>`, also known as your home directory.
-Angle brackets give you a hint to substitute an appropriate value (without the brackets). 
+It is a common convention to use angle brackets as a hint to substitute an appropriate value (without the brackets). 
 
 ```bash
 $ pwd
@@ -223,12 +225,9 @@ $ ls
 ```output
 
 ```
-
 `ls` prints the names of the files and directories in the current directory in
 alphabetical order,
-arranged neatly into columns.
-
-Your output may look different. (Confession, I cleaned up because I knew you were coming over. But now my place is pretty empty ;). Let's get something to look at.
+arranged neatly into columns. Your output may look different if you already have files in your home directory. Let's get some example directories and files so we can practice navigating in a Unix environment.
 
 On most Unix systems, you can grab a file over the internet using a tool called `wget`.
 
@@ -304,19 +303,30 @@ $ ls
 Dahl  Seuss  authors.txt  data  prodinfo454
 ```
 
-We can make the `ls` output more comprehensible by using the **flag** `-F`,
-which tells `ls` to add a trailing `/` to the names of directories:
+We can tell `ls` to display more information for each item
+in the directory by giving it a command line **flag**. Use the `-l` option for the `ls` command, like so:
+
+
 
 ```bash
-$ ls -F
+$ ls -l
 ```
 
 ```output
-Dahl/  Seuss/  authors.txt  data  prodinfo454/
+total 515
+drwxr-sr-x   4 jlchang puppet    94 May  8 01:53 Dahl
+drwxr-sr-x   4 jlchang puppet    68 May  8 01:56 Seuss
+-rw-r--r--   1 jlchang puppet   155 Mar 14  2013 authors.txt
+-rw-r--r--   1 jlchang puppet 19085 Mar 14  2013 data
+drwxr-sr-x 268 jlchang puppet 19483 May  8 01:55 prodinfo454
 ```
+Note: your output will show your username where you see `jlchang` above.
 
-Anything with a "/" after it is a directory. Things with a "\*" after them are programs. If
-there are no decorations, it's a file. Broad servers already color code by default (directories are blue, programs are green) but `ls -F` can be useful on servers that don't color code.
+The additional information given includes the name of the owner of the file,
+when the file was last modified, and whether the current user has permission
+to read and write to the file.
+
+
 
 `ls` has lots of other options. To find out what they are, we can type:
 
@@ -331,39 +341,25 @@ file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forw
 and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd>
 to quit.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+::::::::::::::::::::::::::::::::::::::: spoiler
 
-## Challenge
+## Make `ls` output more readable at-a-glance
 
-Use the `-l` option for the `ls` command to display more information for each item
-in the directory. What is one piece of additional information this long format
-gives you that you don't see with the bare `ls` command?
-
-:::::::::::::::  solution
-
-## Solution
+We can make the `ls` output more comprehensible by using the **flag** `-F`,
+which tells `ls` to add a trailing `/` to the names of directories:
 
 ```bash
-$ ls -l
+$ ls -F
 ```
 
 ```output
-total 8
-drwxrwsr-x   4 jlchang sequence      94 Mar 13  2013 Dahl
-drwxrwsr-x   4 jlchang sequence      68 Mar 13  2013 Seuss
--rw-rw-r--   1 jlchang sequence     155 Mar 14  2013 authors.txt
--rw-rw-r--   1 jlchang sequence   19085 Mar 14  2013 data
-drwxrwsr-x 451 jlchang sequence   33225 Mar 14  2013 prodinfo454
+Dahl/  Seuss/  authors.txt  data  prodinfo454/
 ```
-Note: your output will show your username where you see `jlchang` above.
 
-The additional information given includes the name of the owner of the file,
-when the file was last modified, and whether the current user has permission
-to read and write to the file.
+Anything with a "/" after it is a directory. Things with a "\*" after them are programs. If
+there are no decorations, it's a file. Broad servers use `ls -CF` by default. Knowing `ls -F` can be useful on servers that show plain `ls` output. For a color-coded option, try `ls --color=auto`.
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::
 
 No one can possibly learn all of these arguments, that's what the manual page
 is for. You can (and should) refer to the manual page or other help files
@@ -403,12 +399,13 @@ Now change directories to `James_and_the_Giant_Peach` in `Dahl`
 
 ```bash
 $ cd James_and_the_Giant_Peach
+```
 
 Using tab complete can be very helpful. However, it will only autocomplete
 a file or directory name if you've typed enough characters to provide
 a unique identifier for the file or directory you are trying to access.
 
-For example, if we now try to list the files which names start with  `Th`
+For example, if we now try to list the files which names start with `Au`
 by using tab complete:
 
 ```bash
