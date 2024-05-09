@@ -43,7 +43,7 @@ nucleotide at that position in the DNA sequence.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We'll search for strings inside of our fastq files. But first, we're going to make some symlinks. If you're a Mac user, you may be familiar with right-click to `Make Alias`; On Windows, you'd right-click to `Create Shortcut`. A symlink points to a file without making another copy.
+We'll search for strings inside of our fastq files. But first, we're going to make some symlinks. If you're a Mac user, you may be familiar with right-click to `Make Alias`; On Windows, you'd right-click to `Create Shortcut`. A symlink points to a file without making another copy. NOT copying large files saves money on storage costs!
 
 ```bash
 $ ln -s /broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq SRR098026.fastq
@@ -100,10 +100,10 @@ $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq
 One of the sets of lines returned by this command is:
 
 ```output
-@SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
-CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-+SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+@SRR098026.599947 HWUSI-EAS1599_1:2:4:1280:2025 length=35
+TCANNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
++SRR098026.599947 HWUSI-EAS1599_1:2:4:1280:2025 length=35
+###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -140,21 +140,15 @@ SRR097977.fastq:TTGTCCACGCTTTTCTATGTAAAGTTTATTTGCTTT
 --
 SRR097977.fastq-@SRR097977.68 209DTAAXX_Lenski2_1_7:8:3:724:110 length=36
 SRR097977.fastq:TGAAGCCTGCTTTTTTATACTAAGTTTGCATTATAA
+[...clip...]
+SRR098026.fastq-@SRR098026.599758 HWUSI-EAS1599_1:2:4:1278:392 length=35
+SRR098026.fastq:TCAATGCCGGGCAAGTTCGTACAACACGTAGTGCA
 --
-SRR097977.fastq-@SRR097977.80 209DTAAXX_Lenski2_1_7:8:3:258:281 length=36
-SRR097977.fastq:GTGGCGCTGCTGCATAAGTTGGGTTATCAGGTCGTT
+SRR098026.fastq-@SRR098026.599795 HWUSI-EAS1599_1:2:4:1278:616 length=35
+SRR098026.fastq:GTGAGATTGGGAAAGTTTGCACTCATGGGGGAAGG
 --
-SRR097977.fastq-@SRR097977.92 209DTAAXX_Lenski2_1_7:8:3:353:318 length=36
-SRR097977.fastq:GGCAAAATGGTCCTCCAGCCAGGCCAGAAGCAAGTT
---
-SRR097977.fastq-@SRR097977.139 209DTAAXX_Lenski2_1_7:8:3:703:655 length=36
-SRR097977.fastq:TTTATTTGTAAAGTTTTGTTGAAATAAGGGTTGTAA
---
-SRR097977.fastq-@SRR097977.238 209DTAAXX_Lenski2_1_7:8:3:592:919 length=36
-SRR097977.fastq:TTCTTACCATCCTGAAGTTTTTTCATCTTCCCTGAT
---
-SRR098026.fastq-@SRR098026.158 HWUSI-EAS1599_1:2:1:1:1505 length=35
-SRR098026.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG
+SRR098026.fastq-@SRR098026.599944 HWUSI-EAS1599_1:2:4:1280:742 length=35
+SRR098026.fastq:ACAAGAAGTTAACAACCATATAACCTGCACAGGAC
 ```
 
 :::::::::::::::::::::::::
@@ -211,7 +205,7 @@ $ wc bad_reads.txt
 ```
 
 ```output
-  802    1338   24012 bad_reads.txt
+  68623  124599 2641459 bad_reads.txt
 ```
 
 This will tell us the number of lines, words and characters in the file. If we
@@ -222,7 +216,7 @@ $ wc -l bad_reads.txt
 ```
 
 ```output
-802 bad_reads.txt
+68623 bad_reads.txt
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -240,7 +234,7 @@ $ wc -l SRR098026.fastq
 ```
 
 ```output
-996
+2400000
 ```
 
 Now you can divide this number by four to get the number of sequences in your fastq file.
@@ -248,17 +242,17 @@ Now you can divide this number by four to get the number of sequences in your fa
 This can be done using [shell integer arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html)
 
 ```bash
-$ echo $((996/4))
+$ echo $((2400000/4))
 ```
 
 Note, this will do integer division - if you need floating point arithmetic you can use [bc - an arbitrary precision calculator](https://www.gnu.org/software/bc/manual/html_mono/bc.html)
 
 ```bash
-$ echo "996/4" | bc
+$ echo "2400000/4" | bc
 ```
 
 ```output
-249
+600000
 ```
 
 :::::::::::::::::::::::::
@@ -281,7 +275,7 @@ $ wc -l bad_reads.txt
 ```
 
 ```output
-249
+17687 bad_reads.txt
 ```
 
 :::::::::::::::::::::::::
@@ -300,7 +294,7 @@ $ wc -l bad_reads.txt
 ```
 
 ```output
-802 bad_reads.txt
+68623 bad_reads.txt
 ```
 
 ```bash
@@ -309,12 +303,12 @@ $ wc -l bad_reads.txt
 ```
 
 ```output
-0 bad_reads.txt
+523 bad_reads.txt
 ```
 
-Here, the output of our second  call to `wc` shows that we no longer have any lines in our `bad_reads.txt` file. This is
-because the second file we searched (`SRR097977.fastq`) does not contain any lines that match our
-search sequence. So our file was overwritten and is now empty.
+Here, the output of our second  call to `wc` shows that we no longer have 68623 lines in our `bad_reads.txt` file. This is
+because the second file we searched (`SRR097977.fastq`) only has 523 lines that match our
+search sequence. So our file was overwritten.
 
 We can avoid overwriting our files by using the command `>>`. `>>` is known as the "append redirect" and will
 append new output to the end of a file, rather than overwriting it.
@@ -325,7 +319,7 @@ $ wc -l bad_reads.txt
 ```
 
 ```output
-802 bad_reads.txt
+68623 bad_reads.txt
 ```
 
 ```bash
@@ -334,10 +328,10 @@ $ wc -l bad_reads.txt
 ```
 
 ```output
-802 bad_reads.txt
+69146 bad_reads.txt
 ```
 
-The output of our second call to `wc` shows that we have not overwritten our original data.
+The output of our second call to `wc` shows that we have added more bad reads to our original data.
 
 We can also do this with a single line of code by using a wildcard:
 
@@ -347,8 +341,10 @@ $ wc -l bad_reads.txt
 ```
 
 ```output
-802 bad_reads.txt
+69147 bad_reads.txt
 ```
+
+# Pilot Unix workshop edits stop here 
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
