@@ -21,7 +21,7 @@ keywords: 'lesson'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha'
+life_cycle: 'alpha'
 
 # License of the lesson materials (recommended CC-BY 4.0)
 license: 'CC-BY 4.0'
@@ -58,25 +58,25 @@ contact: 'cb-admin@broadinstitute.org'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
 - 01-introduction.md
 - 02-the-filesystem.md
 - 03-working-with-files.md
 - 04-redirection.md
 
 # Information for Learners
-learners: 
+learners:
 - setup.md
 - shellCheatSheet.md
 - reference.md
 
 # Information for Instructors
-instructors: 
+instructors:
 - instructor-notes.md
 - Extra_lesson.md
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
