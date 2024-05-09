@@ -130,7 +130,9 @@ what you need to solve the bonus problem.
 
 1. `ls /usr/bin/c*`
 2. `ls /usr/bin/*a*`
-3. `ls /usr/bin/*o`
+3. `ls /usr/bin/*o`  
+
+
   Bonus: `ls /usr/bin/*[ac]*`
 
 :::::::::::::::::::::::::
@@ -158,6 +160,8 @@ The `*` is expanded to include any file that ends with `.fastq`. We can see that
 
 What would the output look like if the wildcard could *not* be matched? Compare the outputs of
 `echo *.missing` and `ls *.missing`.
+
+Later on, when you learn to string together Unix commands, echo can be useful for injecting desirable text where you need it.
 
 :::::::::::::::  solution
 
@@ -271,7 +275,7 @@ This will print out all of the contents of the `SRR097977.fastq` to the screen.
 
 ## Solution
 
-1. The last line of the file is `C:CCC::CCCCCCCC<8?6A:C28C<608'&&&,'$`.
+1. The last line of the file is `CCC?CCCCCCC?CCCC?CCC>:CC:C>8C8?97A?'`.
 2. `cat /broad/hptmp/computing_basics/untrimmed_fastq/*`
 
 :::::::::::::::::::::::::
@@ -367,16 +371,16 @@ $ tail SRR098026.fastq
 ```
 
 ```output
-+SRR098026.247 HWUSI-EAS1599_1:2:1:2:1311 length=35
-#!##!#################!!!!!!!######
-@SRR098026.248 HWUSI-EAS1599_1:2:1:2:118 length=35
-GNTGNGGTCATCATACGCGCCCNNNNNNNGGCATG
-+SRR098026.248 HWUSI-EAS1599_1:2:1:2:118 length=35
-B!;?!A=5922:##########!!!!!!!######
-@SRR098026.249 HWUSI-EAS1599_1:2:1:2:1057 length=35
-CNCTNTATGCGTACGGCAGTGANNNNNNNGGAGAT
-+SRR098026.249 HWUSI-EAS1599_1:2:1:2:1057 length=35
-A!@B!BBB@ABAB#########!!!!!!!######
++SRR098026.599998 HWUSI-EAS1599_1:2:4:1280:1692 length=35
+B>CA8BA7@B=;:?A(@?#################
+@SRR098026.599999 HWUSI-EAS1599_1:2:4:1281:250 length=35
+GAAAAAATGGGCGTGACCATTAAGTGCAACAACGA
++SRR098026.599999 HWUSI-EAS1599_1:2:4:1281:250 length=35
+CCCCBCBBBBBBC@BBB?ABBBBB=BBB@8@BAA9
+@SRR098026.600000 HWUSI-EAS1599_1:2:4:1281:1075 length=35
+AATCATCATAACGAAAAGCCCCTTACTTGTAGGAG
++SRR098026.600000 HWUSI-EAS1599_1:2:4:1281:1075 length=35
+BBB@BBBBBBB@BBABAA<89<A@@>A>?<@A<8@
 ```
 
 The `-n` option to either of these commands can be used to print the
@@ -395,7 +399,7 @@ $ tail -n 1 SRR098026.fastq
 ```
 
 ```output
-A!@B!BBB@ABAB#########!!!!!!!######
+BBB@BBBBBBB@BBABAA<89<A@@>A>?<@A<8@
 ```
 
 ## Details on the FASTQ format
@@ -485,18 +489,22 @@ and change the file permissions so that we can read from, but not write to, the 
 
 First, let's make a copy of one of our FASTQ files using the `cp` command.
 
-Navigate to the `untrimmed_fastq` directory and enter:
+Usually, you would do this in the `untrimmed_fastq` directory and the command would look like:
+`cp SRR097977.fastq SRR097977-copy.fastq`
+
+but, because there are a lot of us, lets copy the file from the /broad/hptmp filesystem into our home directory.
 
 ```bash
-$ cp SRR097977.fastq SRR097977-copy.fastq
+$ cp SRR097977.fastq ~/SRR097977-copy.fastq
+$ cd
 $ ls -F
 ```
 
 ```output
-SRR097977-copy.fastq  SRR097977.fastq  SRR098026.fastq
+SRR097977-copy.fastq  cb_unix_shell  cb_unix_shell.tgz
 ```
 
-We now have two copies of the `SRR097977.fastq` file, one of them named `SRR097977-copy.fastq`. We'll move this file to a new directory
+We now have a copy of the `SRR097977.fastq` file, named `SRR097977-copy.fastq`. We'll move this file to a new directory
 called `backup` where we'll store our backup data files.
 
 ### Creating Directories
@@ -628,14 +636,14 @@ Starting in your home directory directory, do the following:
 ## Solution
 
 1. `rm -r backup`
-2. `cp /broad/hptmp/computing_basics/SRR098026.fastq SRR098026-backup.fastq` and `cp /broad/hptmp/computing_basics/SRR097977.fastq SRR097977-backup.fastq`
+2. `cp /broad/hptmp/computing_basics/untrimmed_fastq/SRR098026.fastq SRR098026-backup.fastq` and `cp /broad/hptmp/computing_basics/untrimmed_fastq/SRR097977.fastq SRR097977-backup.fastq`
 3. `mkdir backup` and `mv *-backup.fastq backup`
 4. `chmod -w backup/*-backup.fastq`
   It's always a good idea to check your work with `ls -l backup`. You should see something like:
 
 ```output
--r--r--r-- 1 dcuser dcuser 47552 Nov 15 23:06 SRR097977-backup.fastq
--r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:06 SRR098026-backup.fastq
+-rw-rw-r-- 1 jlchang puppet  49504900 May  9 08:09 SRR097977-backup.fastq
+-rw-rw-r-- 1 jlchang puppet 111148244 May  9 08:09 SRR098026-backup.fastq
 ```
 
 :::::::::::::::::::::::::

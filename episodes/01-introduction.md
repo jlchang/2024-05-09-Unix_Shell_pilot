@@ -64,8 +64,9 @@ you'll use SecureCRT.
 1. Log in to a Broad login server using the [instructions on the Broad Intranet](https://intranet.broadinstitute.org/bits/service-catalog/scientific-computing/login-servers).
 
 :::::::::::::::::::::::::::::::::::::::::: spoiler
-## Your Broad username
+## Your Broad username and Unix password
 The portion of your Broad email address before the @ symbol is your Broad username.
+Your Unix password is the the same one you use for your Broad-issued computer.
 ::::::::::::::::::::::::::::::::::::::::::
 
 After logging in, you will see a screen showing something like this:
