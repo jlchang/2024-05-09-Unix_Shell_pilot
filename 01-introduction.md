@@ -64,7 +64,9 @@ you'll use SecureCRT.
 1. Log in to a Broad login server using the [instructions on the Broad Intranet](https://intranet.broadinstitute.org/bits/service-catalog/scientific-computing/login-servers).
 
 :::::::::::::::::::::::::::::::::::::::::: spoiler
+
 ## Your Broad username and Unix password
+
 The portion of your Broad email address before the @ symbol is your Broad username.
 Your Unix password is the the same one you use for your Broad-issued computer.
 ::::::::::::::::::::::::::::::::::::::::::
@@ -132,7 +134,7 @@ Otherwise let's continue. You can clear your screen using the `clear` command.
 Type the word `clear` into the terminal and press the `Enter` key.
 
 ```bash
-$ clear
+clear
 ```
 
 This will scroll your screen down to give you a fresh screen and will make it easier to read.
@@ -158,8 +160,6 @@ and directories (also called "folders"),
 which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
-
-
 
 ```bash
 $
@@ -205,27 +205,29 @@ the directory that the computer assumes we want to run commands in,
 unless we explicitly specify something else.
 Here,
 the computer's response is `/home/unix/<username>`, also known as your home directory.
-It is a common convention to use angle brackets as a hint to substitute an appropriate value (without the brackets). 
+It is a common convention to use angle brackets as a hint to substitute an appropriate value (without the brackets).
 
 ```bash
-$ pwd
+pwd
 ```
 
 ```output
 /home/unix/<username>
 ```
+
 Your screen will show your username where you see <username> in the output box above.
 
 Let's look at our file system. We can see what files and subdirectories are in this directory by running `ls`,
 which stands for "listing":
 
 ```bash
-$ ls
+ls
 ```
 
 ```output
 
 ```
+
 `ls` prints the names of the files and directories in the current directory in
 alphabetical order,
 arranged neatly into columns. Your output may look different if you already have files in your home directory. Let's get some example directories and files so we can practice navigating in a Unix environment.
@@ -233,7 +235,7 @@ arranged neatly into columns. Your output may look different if you already have
 On most Unix systems, you can grab a file over the internet using a tool called `wget`.
 
 ```bash
-$ wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/jlc_episode1_edits/learners/files/cb_unix_shell.tgz
+wget https://github.com/jlchang/2024-05-09-Unix_Shell_pilot/raw/main/learners/files/cb_unix_shell.tgz
 ```
 
 ```output
@@ -258,7 +260,7 @@ cb_unix_shell.tgz              100%[============================================
 Now if we `ls`
 
 ```bash
-$ ls
+ls
 ```
 
 ```output
@@ -274,7 +276,7 @@ tar -xzf cb_unix_shell.tgz
 Now if we `ls` again
 
 ```bash
-$ ls
+ls
 ```
 
 ```output
@@ -291,13 +293,13 @@ Let's say we want to navigate to the `cb_unix_shell` directory we saw above.  We
 use the following command to get there:
 
 ```bash
-$ cd cb_unix_shell
+cd cb_unix_shell
 ```
 
 Let's look at what is in this directory:
 
 ```bash
-$ ls
+ls
 ```
 
 ```output
@@ -307,10 +309,8 @@ Dahl  Seuss  authors.txt  data  prodinfo454
 We can tell `ls` to display more information for each item
 in the directory by giving it a command line **flag**. Use the `-l` option for the `ls` command, like so:
 
-
-
 ```bash
-$ ls -l
+ls -l
 ```
 
 ```output
@@ -321,18 +321,17 @@ drwxr-sr-x   4 jlchang puppet    68 May  8 01:56 Seuss
 -rw-r--r--   1 jlchang puppet 19085 Mar 14  2013 data
 drwxr-sr-x 268 jlchang puppet 19483 May  8 01:55 prodinfo454
 ```
+
 Note: your output will show your username where you see `jlchang` above.
 
 The additional information given includes the name of the owner of the file,
 when the file was last modified, and whether the current user has permission
 to read and write to the file.
 
-
-
 `ls` has lots of other options. To find out what they are, we can type:
 
 ```bash
-$ man ls
+man ls
 ```
 
 `man` (short for manual) displays detailed documentation (also referred as man page or man file)
@@ -350,7 +349,7 @@ We can make the `ls` output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
 ```bash
-$ ls -F
+ls -F
 ```
 
 ```output
@@ -369,8 +368,8 @@ as needed.
 Let's go into the `Dahl` directory and see what is in there.
 
 ```bash
-$ cd Dahl
-$ ls -F
+cd Dahl
+ls -F
 ```
 
 ```output
@@ -390,7 +389,7 @@ directory or file name.
 From the `Dahl` directory:
 
 ```bash
-$ cd J<tab>
+cd J<tab>
 ```
 
 The shell will fill in the rest of the directory name for
@@ -399,7 +398,7 @@ The shell will fill in the rest of the directory name for
 Now change directories to `James_and_the_Giant_Peach` in `Dahl`
 
 ```bash
-$ cd James_and_the_Giant_Peach
+cd James_and_the_Giant_Peach
 ```
 
 Using tab complete can be very helpful. However, it will only autocomplete
@@ -410,7 +409,7 @@ For example, if we now try to list the files which names start with `Au`
 by using tab complete:
 
 ```bash
-$ ls Au<tab>
+ls Au<tab>
 ```
 
 The shell auto-completes your command to `Aunt_Sp`, because there are two files in
@@ -418,7 +417,7 @@ the directory that begin with `Aunt_Sp`. When you hit
 <kbd>Tab</kbd> again, the shell will list the possible choices.
 
 ```bash
-$ ls Aunt_Sp<tab><tab>
+ls Aunt_Sp<tab><tab>
 ```
 
 ```output
@@ -429,7 +428,7 @@ Tab completion can also fill in the names of programs, which can be useful if yo
 remember the beginning of a program name.
 
 ```bash
-$ pw<tab><tab>
+pw<tab><tab>
 ```
 
 ```output
